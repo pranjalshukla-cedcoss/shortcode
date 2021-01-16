@@ -167,12 +167,6 @@ class Shortcode {
 		$this->loader->add_filter( 'mwb_add_plugins_menus_array', $s_plugin_admin, 's_admin_submenu_page', 15 );
 		$this->loader->add_filter( 's_general_settings_array', $s_plugin_admin, 's_admin_general_settings_page', 10 );
 
-		$this->loader->add_action( 'init', $s_plugin_admin, 'add_new_custom_post', 1 );
-
-		$this->loader->add_action( 'init', $s_plugin_admin, 'add_new_shortcodes', 2 );
-
-		$this->loader->add_filter( 'template_include', $s_plugin_admin, 'apply_template', 99 );
-
 	}
 
 	/**
@@ -189,6 +183,11 @@ class Shortcode {
 		$this->loader->add_action( 'wp_enqueue_scripts', $s_plugin_public, 's_public_enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $s_plugin_public, 's_public_enqueue_scripts' );
 
+		$this->loader->add_action( 'init', $s_plugin_public, 'add_new_custom_post', 1 );
+
+		$this->loader->add_action( 'init', $s_plugin_public, 'add_new_shortcodes', 2 );
+
+		$this->loader->add_filter( 'template_include', $s_plugin_public, 'apply_template', 99 );
 	}
 
 

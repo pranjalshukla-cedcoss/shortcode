@@ -53,16 +53,16 @@ class Shortcode_Activator {
 				//'post_content' => '[products cat="cloths" show="10"]',
 			);
 			wp_insert_post( $args, true );
-			//add_action( 'admin_menu', 'add_menu_item' );
+			//	add_action( 'admin_menu', 'add_menu_item' );
 		} elseif ( null != $a1 ) {
 			$args = array(
+				'ID'   => $a1->ID,
 				'post_type' => 'page',
 				'post_title' => 'Shop',
 				'post_status' => 'publish',
 				//'post_content' => '[products cat="cloths" show="10"]',
 			);
-			wp_insert_post( $args, true );
-			wp_delete_post( $a1->ID, true );
+			wp_update_post( $args, true );
 		}
 
 		// $args = array (
